@@ -31,15 +31,21 @@ public class EvolutionView extends JFrame implements ActionListener, ChangeListe
 	private JRadioButton cpu1Option1;
 	private JRadioButton cpu1Option2;
 	private JRadioButton cpu1Option3;
+	private JRadioButton cpu1Option4;
+	private JRadioButton cpu1Option5;
 	private JRadioButton cpu2Option1;
 	private JRadioButton cpu2Option2;
 	private JRadioButton cpu2Option3;
+	private JRadioButton cpu2Option4;
+	private JRadioButton cpu2Option5;
 	private JRadioButton modemOption1;
 	private JRadioButton modemOption2;
 	private JRadioButton modemOption3;
+	private JRadioButton modemOption4;
 	private JRadioButton firewallOption1;
 	private JRadioButton firewallOption2;
 	private JRadioButton firewallOption3;
+	private JRadioButton firewallOption4;
 	
 	private JTextArea passwordSummaryText;
 	private JTextArea encryptionSummaryText;
@@ -121,6 +127,12 @@ public class EvolutionView extends JFrame implements ActionListener, ChangeListe
 		cpu1Option3 = new JRadioButton("2 Ghz");
 		cpu1Panel.add(cpu1Option3);
 		
+		cpu1Option4 = new JRadioButton("4 Ghz");
+		cpu1Panel.add(cpu1Option4);
+		
+		cpu1Option5 = new JRadioButton("8 Ghz");
+		cpu1Panel.add(cpu1Option5);
+		
 		JPanel cpu2Panel = new JPanel();
 		centerPanel.add(cpu2Panel);
 		cpu2Panel.setLayout(new BoxLayout(cpu2Panel, BoxLayout.Y_AXIS));
@@ -138,6 +150,12 @@ public class EvolutionView extends JFrame implements ActionListener, ChangeListe
 		cpu2Option3 = new JRadioButton("2 Ghz");
 		cpu2Panel.add(cpu2Option3);
 		
+		cpu2Option4 = new JRadioButton("4 Ghz");
+		cpu2Panel.add(cpu2Option4);
+		
+		cpu2Option5 = new JRadioButton("8 Ghz");
+		cpu2Panel.add(cpu2Option5);
+		
 		JPanel modemPanel = new JPanel();
 		centerPanel.add(modemPanel);
 		modemPanel.setLayout(new BoxLayout(modemPanel, BoxLayout.Y_AXIS));
@@ -152,8 +170,11 @@ public class EvolutionView extends JFrame implements ActionListener, ChangeListe
 		modemOption2 = new JRadioButton("2 mbps");
 		modemPanel.add(modemOption2);
 		
-		modemOption3 = new JRadioButton("3 mbps");
+		modemOption3 = new JRadioButton("4 mbps");
 		modemPanel.add(modemOption3);
+		
+		modemOption4 = new JRadioButton("8 mbps");
+		modemPanel.add(modemOption4);
 		
 		JPanel firewallPanel = new JPanel();
 		centerPanel.add(firewallPanel);
@@ -172,6 +193,9 @@ public class EvolutionView extends JFrame implements ActionListener, ChangeListe
 		firewallOption3 = new JRadioButton("Level 2");
 		firewallPanel.add(firewallOption3);
 		
+		firewallOption4 = new JRadioButton("Level 3");
+		firewallPanel.add(firewallOption4);
+		
 		ButtonGroup cpu1Group = new ButtonGroup();
 		ButtonGroup cpu2Group = new ButtonGroup();
 		ButtonGroup modemGroup = new ButtonGroup();
@@ -180,18 +204,24 @@ public class EvolutionView extends JFrame implements ActionListener, ChangeListe
 		cpu1Group.add(cpu1Option1);
 		cpu1Group.add(cpu1Option2);
 		cpu1Group.add(cpu1Option3);
+		cpu1Group.add(cpu1Option4);
+		cpu1Group.add(cpu1Option5);
 		
 		cpu2Group.add(cpu2Option1);
 		cpu2Group.add(cpu2Option2);
 		cpu2Group.add(cpu2Option3);
-
+		cpu2Group.add(cpu2Option4);
+		cpu2Group.add(cpu2Option5);
+		
 		modemGroup.add(modemOption1);
 		modemGroup.add(modemOption2);
 		modemGroup.add(modemOption3);
+		modemGroup.add(modemOption4);
 		
 		firewallGroup.add(firewallOption1);
 		firewallGroup.add(firewallOption2);
 		firewallGroup.add(firewallOption3);
+		firewallGroup.add(firewallOption4);
 		
 		JPanel maxBouncePanel = new JPanel();
 		centerPanel.add(maxBouncePanel);
@@ -208,18 +238,24 @@ public class EvolutionView extends JFrame implements ActionListener, ChangeListe
 		cpu1Option1.addActionListener(this);
 		cpu1Option2.addActionListener(this);
 		cpu1Option3.addActionListener(this);
+		cpu1Option4.addActionListener(this);
+		cpu1Option5.addActionListener(this);
 		
 		cpu2Option1.addActionListener(this);
 		cpu2Option2.addActionListener(this);
 		cpu2Option3.addActionListener(this);
+		cpu2Option4.addActionListener(this);
+		cpu2Option5.addActionListener(this);
 		
 		modemOption1.addActionListener(this);
 		modemOption2.addActionListener(this);
 		modemOption3.addActionListener(this);
+		modemOption4.addActionListener(this);
 		
 		firewallOption1.addActionListener(this);
 		firewallOption2.addActionListener(this);
 		firewallOption3.addActionListener(this);
+		firewallOption4.addActionListener(this);
 		
 		getResults(cpu1Value, cpu2Value, modemValue, firewallValue, (int)maxBounceSpinner.getValue());
 	}
@@ -243,24 +279,36 @@ public class EvolutionView extends JFrame implements ActionListener, ChangeListe
 			this.cpu1Value = 1;
 		} else if(changedButton.equals(cpu1Option3)){
 			this.cpu1Value = 2;
+		} else if(changedButton.equals(cpu1Option4)){
+			this.cpu1Value = 4;
+		} else if(changedButton.equals(cpu1Option5)){
+			this.cpu1Value = 8;
 		} else if(changedButton.equals(cpu2Option1)){
 			this.cpu2Value = 0;
 		} else if(changedButton.equals(cpu2Option2)){
 			this.cpu2Value = 1;
 		} else if(changedButton.equals(cpu2Option3)){
 			this.cpu2Value = 2;
+		} else if(changedButton.equals(cpu2Option4)){
+			this.cpu2Value = 4;
+		} else if(changedButton.equals(cpu2Option5)){
+			this.cpu2Value = 8;
 		} else if(changedButton.equals(modemOption1)){
 			this.modemValue = 1;
 		} else if(changedButton.equals(modemOption2)){
 			this.modemValue = 2;
 		} else if(changedButton.equals(modemOption3)){
-			this.modemValue = 3;
+			this.modemValue = 4;
+		} else if(changedButton.equals(modemOption4)){
+			this.modemValue = 8;
 		} else if(changedButton.equals(firewallOption1)){
 			this.firewallValue = 0;
 		} else if(changedButton.equals(firewallOption2)){
 			this.firewallValue = 1;
 		} else if(changedButton.equals(firewallOption3)){
 			this.firewallValue = 2;
+		} else if(changedButton.equals(firewallOption4)){
+			this.firewallValue = 3;
 		}
 		getResults(cpu1Value, cpu2Value, modemValue, firewallValue, (int)maxBounceSpinner.getValue());
 	}
